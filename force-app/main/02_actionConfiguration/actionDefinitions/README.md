@@ -224,7 +224,7 @@ get_forecast:
       days: number
          description: "Number of days to include in the forecast (1-10)"
    outputs:
-      forecast_data: list[object]
+      forecast_data: list[string]
          description: "List of daily forecast objects containing temperature, conditions, and precipitation data"
    target: "flow://GetWeatherForecast"
 ```
@@ -258,6 +258,16 @@ reasoning:
          | - Location: {!@variables.location}
       else:
          | - Location: None specified
+
+      if @variables.current_temperature > 0:
+         | - Temperature: {!@variables.current_temperature}
+      else:
+         | - Temperature: Not fetched
+
+      if @variables.conditions:
+         | - Conditions: {!@variables.conditions}
+      else:
+         | - Conditions: Not fetched
 
       | When a user asks about weather:
         1. Identify the location they're asking about
