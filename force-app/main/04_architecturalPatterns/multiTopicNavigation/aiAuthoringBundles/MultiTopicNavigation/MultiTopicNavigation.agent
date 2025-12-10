@@ -61,6 +61,7 @@ topic hotel_browse:
          outputs:
             hotels: list[object]
                description: "List of available hotel objects with name, price, rating, and amenities information"
+               complex_data_type_name: "lightning__recordInfoType" # This is the name of the complex data type that is used to store the hotel objects
          target: "flow://SearchHotels"
 
    reasoning:
