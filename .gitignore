@@ -50,3 +50,5 @@ sfca_results.json
 # Local environment variables/config
 .env
 .config
+
+to-migrate/*
