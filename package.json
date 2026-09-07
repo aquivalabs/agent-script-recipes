@@ -50,5 +50,8 @@
     },
     "volta": {
         "node": "22.16.0"
+    },
+    "overrides": {
+        "@babel/core": "^7.29.6"
     }
 }
